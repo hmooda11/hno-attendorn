@@ -21,4 +21,8 @@ Die sichtbaren Praxisdaten stammen aus den bereitgestellten Visitenkarten:
 
 ## Deployment
 
-Das Sites-Projekt ist in `.openai/hosting.json` referenziert.
+Die produktive statische Ausgabe fuer GitHub Pages liegt in `docs/`.
+
+```bash
+npm run build:pages
+```
