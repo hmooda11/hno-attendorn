@@ -7,13 +7,56 @@ const dist = join(root, "dist");
 const serverDir = join(dist, "server");
 const hostingDir = join(dist, ".openai");
 
-const [html, css, js, logo, hosting] = await Promise.all([
+const binaryAssets = [
+  {
+    cacheControl: "public, max-age=31536000, immutable",
+    file: "hno-logo.png",
+    path: "/assets/hno-logo.png",
+    type: "image/png"
+  },
+  {
+    cacheControl: "public, max-age=31536000, immutable",
+    file: "praxis-treatment-room.jpg",
+    path: "/assets/praxis-treatment-room.jpg",
+    type: "image/jpeg"
+  },
+  {
+    cacheControl: "public, max-age=31536000, immutable",
+    file: "praxis-ear-exam.jpg",
+    path: "/assets/praxis-ear-exam.jpg",
+    type: "image/jpeg"
+  },
+  {
+    cacheControl: "public, max-age=31536000, immutable",
+    file: "praxis-child-exam.jpg",
+    path: "/assets/praxis-child-exam.jpg",
+    type: "image/jpeg"
+  },
+  {
+    cacheControl: "public, max-age=31536000, immutable",
+    file: "praxis-otoscope.jpg",
+    path: "/assets/praxis-otoscope.jpg",
+    type: "image/jpeg"
+  }
+];
+
+const [html, css, js, binaryEntries, hosting] = await Promise.all([
   readFile(join(root, "index.html"), "utf8"),
   readFile(join(root, "src/styles.css"), "utf8"),
   readFile(join(root, "src/main.js"), "utf8"),
-  readFile(join(root, "public/assets/hno-logo.png")),
+  Promise.all(
+    binaryAssets.map(async (asset) => [
+      asset.path,
+      {
+        body: (await readFile(join(root, "public/assets", asset.file))).toString("base64"),
+        cacheControl: asset.cacheControl,
+        type: asset.type
+      }
+    ])
+  ),
   readFile(join(root, ".openai/hosting.json"), "utf8")
 ]);
+const binaryRoutes = Object.fromEntries(binaryEntries);
 
 const routes = {
   "/": {
@@ -35,7 +78,7 @@ const routes = {
 };
 
 const server = `const textRoutes = ${JSON.stringify(routes, null, 2)};
-const logoBase64 = "${logo.toString("base64")}";
+const binaryRoutes = ${JSON.stringify(binaryRoutes, null, 2)};
 
 function bytesFromBase64(value) {
   const binary = atob(value);
@@ -57,12 +100,13 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\\/$/, "") || "/";
 
-    if (path === "/assets/hno-logo.png") {
-      return new Response(bytesFromBase64(logoBase64), {
+    const binaryRoute = binaryRoutes[path];
+    if (binaryRoute) {
+      return new Response(bytesFromBase64(binaryRoute.body), {
         headers: {
           ...headers,
-          "Content-Type": "image/png",
-          "Cache-Control": "public, max-age=31536000, immutable"
+          "Content-Type": binaryRoute.type,
+          "Cache-Control": binaryRoute.cacheControl
         }
       });
     }
