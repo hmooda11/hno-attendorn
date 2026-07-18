@@ -1,6 +1,6 @@
-# HNO-Praxis Wael Alyoussef
+# HNO-Attendorn Praxis
 
-Moderne statische Website fuer die HNO-Praxis Wael Alyoussef in Attendorn.
+Moderne statische Website fuer die HNO-Attendorn Praxis in Attendorn mit Wael Alyoussef als Facharzt fuer Hals-Nasen-Ohrenheilkunde.
 
 ## Lokale Entwicklung
 

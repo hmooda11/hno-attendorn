@@ -16,6 +16,12 @@ const binaryAssets = [
   },
   {
     cacheControl: "public, max-age=31536000, immutable",
+    file: "doctolib-logo.svg",
+    path: "/assets/doctolib-logo.svg",
+    type: "image/svg+xml; charset=utf-8"
+  },
+  {
+    cacheControl: "public, max-age=31536000, immutable",
     file: "praxis-treatment-room.jpg",
     path: "/assets/praxis-treatment-room.jpg",
     type: "image/jpeg"

@@ -24,6 +24,9 @@ const year = document.querySelector("[data-year]");
 const gallerySteps = [...document.querySelectorAll("[data-gallery-step]")];
 const galleryImages = [...document.querySelectorAll("[data-gallery-image]")];
 const gallerySection = document.querySelector("#praxis");
+const phoneTrigger = document.querySelector("[data-phone-trigger]");
+const phoneModal = document.querySelector("[data-phone-modal]");
+const phoneModalCloseButtons = [...document.querySelectorAll("[data-phone-modal-close]")];
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -149,9 +152,50 @@ function setupScrollGallery() {
   updateActiveStep();
 }
 
+function isMobileCallDevice() {
+  const hasMobileUserAgent = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const hasPhoneLikePointer = window.matchMedia("(max-width: 760px) and (pointer: coarse)").matches;
+  return hasMobileUserAgent || hasPhoneLikePointer;
+}
+
+function setupPhoneModal() {
+  if (!phoneTrigger || !phoneModal) return;
+
+  const closeButton = phoneModal.querySelector(".phone-modal-close");
+
+  function openModal() {
+    phoneModal.hidden = false;
+    document.body.classList.add("has-modal-open");
+    closeButton?.focus();
+  }
+
+  function closeModal() {
+    phoneModal.hidden = true;
+    document.body.classList.remove("has-modal-open");
+    phoneTrigger.focus();
+  }
+
+  phoneTrigger.addEventListener("click", (event) => {
+    if (isMobileCallDevice()) return;
+    event.preventDefault();
+    openModal();
+  });
+
+  phoneModalCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !phoneModal.hidden) {
+      closeModal();
+    }
+  });
+}
+
 updateHeader();
 updateToday();
 setupReveal();
 setupScrollGallery();
+setupPhoneModal();
 
 window.addEventListener("scroll", updateHeader, { passive: true });

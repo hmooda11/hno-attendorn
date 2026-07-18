@@ -122,7 +122,14 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span aria-hidden="true">↗</span>
+        <img
+          src="/assets/doctolib-logo.svg"
+          alt=""
+          width="136"
+          height="36"
+          aria-hidden="true"
+          style="width: clamp(64px, 7vw, 78px); height: auto; padding: 3px 6px; border-radius: 6px; background: #fff;"
+        />
         Online buchen
       </a>
     </header>
@@ -144,9 +151,6 @@
           <p class="eyebrow">HNO-Praxis in Attendorn</p>
           <h1 id="hero-title">HNO-Attendorn Praxis</h1>
           <p class="hero-subtitle">Wael Alyoussef, Facharzt für Hals-Nasen-Ohrenheilkunde</p>
-          <p class="hero-copy">
-            Moderne, ruhige Praxisinformationen für Online-Termine, Sprechzeiten und Anfahrt.
-          </p>
           <div class="hero-actions" aria-label="Schnelle Kontaktmöglichkeiten">
             <a
               class="button primary"
@@ -154,10 +158,17 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span aria-hidden="true">↗</span>
+              <img
+                src="/assets/doctolib-logo.svg"
+                alt=""
+                width="136"
+                height="36"
+                aria-hidden="true"
+                style="width: clamp(72px, 8vw, 92px); height: auto; padding: 3px 7px; border-radius: 6px; background: #fff;"
+              />
               Termin online buchen
             </a>
-            <a class="button secondary" href="tel:+49272254795">
+            <a class="button secondary" href="tel:+49272254795" data-phone-trigger>
               <span aria-hidden="true">☎</span>
               Telefonisch vereinbaren
             </a>
@@ -397,7 +408,14 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span aria-hidden="true">↗</span>
+              <img
+                src="/assets/doctolib-logo.svg"
+                alt=""
+                width="136"
+                height="36"
+                aria-hidden="true"
+                style="width: clamp(72px, 8vw, 92px); height: auto; padding: 3px 7px; border-radius: 6px; background: #fff;"
+              />
               Termin online buchen
             </a>
             <a class="button secondary" href="tel:+49272254795">
@@ -436,6 +454,17 @@
         </div>
       </section>
     </main>
+
+    <div class="phone-modal" data-phone-modal role="dialog" aria-modal="true" aria-labelledby="phone-modal-title" hidden>
+      <div class="phone-modal-backdrop" data-phone-modal-close></div>
+      <div class="phone-modal-card" role="document">
+        <button class="phone-modal-close" type="button" data-phone-modal-close aria-label="Schließen">×</button>
+        <p class="eyebrow">Telefonisch vereinbaren</p>
+        <h2 id="phone-modal-title">Rufen Sie uns an</h2>
+        <p>Für eine Terminvereinbarung erreichen Sie die Praxis unter:</p>
+        <a class="phone-modal-number" href="tel:+49272254795">0 27 22 - 5 47 95</a>
+      </div>
+    </div>
 
     <footer class="site-footer" id="impressum">
       <div>
