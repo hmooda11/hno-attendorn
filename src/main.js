@@ -75,6 +75,7 @@ function setupScrollGallery() {
 
   let activeIndex = -1;
   let frame = 0;
+  const phoneGalleryQuery = window.matchMedia("(max-width: 680px)");
 
   function setActive(index) {
     if (index === activeIndex) return;
@@ -100,7 +101,8 @@ function setupScrollGallery() {
     const exitProgress = Math.min(Math.max((progress - 0.84) / 0.16, 0), 1);
     const scale = 0.88 + revealProgress * 0.12;
     const inset = 10 - revealProgress * 10;
-    const activeImageScale = 1.02 + progress * 0.08;
+    const isPhoneGallery = phoneGalleryQuery.matches;
+    const activeImageScale = 1.02 + progress * (isPhoneGallery ? 0.12 : 0.08);
 
     gallerySection.style.setProperty("--gallery-scale", scale.toFixed(3));
     gallerySection.style.setProperty("--gallery-inset", inset.toFixed(3));
@@ -108,6 +110,17 @@ function setupScrollGallery() {
     gallerySection.style.setProperty("--gallery-entry-fade", ((1 - revealProgress) * 0.46).toFixed(3));
     gallerySection.style.setProperty("--gallery-exit-fade", exitProgress.toFixed(3));
     gallerySection.style.setProperty("--image-scale", activeImageScale.toFixed(3));
+
+    if (isPhoneGallery) {
+      const mobileItemCount = Math.min(gallerySteps.length, galleryImages.length);
+      const mobileProgress = Math.min(Math.max((progress - 0.06) / 0.8, 0), 1);
+      const mobileIndex = Math.min(
+        mobileItemCount - 1,
+        Math.max(0, Math.round(mobileProgress * (mobileItemCount - 1)))
+      );
+      setActive(mobileIndex);
+      return;
+    }
 
     let focusLine = window.innerHeight * 0.52;
 

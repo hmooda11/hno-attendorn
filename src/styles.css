@@ -1700,7 +1700,8 @@ dd {
   }
 
   .gallery-steps {
-    gap: 12px;
+    gap: 42svh;
+    padding-bottom: 86svh;
   }
 
   .gallery-step {
