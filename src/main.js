@@ -63,11 +63,12 @@ function setupReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove("in-view");
         }
       });
     },
-    { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
   );
 
   revealItems.forEach((item, index) => {
@@ -153,14 +154,12 @@ function setupStaggeredSections() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
         entry.target.querySelectorAll(".stagger-item").forEach((item) => {
-          item.classList.add("is-staggered-in");
+          item.classList.toggle("is-staggered-in", entry.isIntersecting);
         });
-        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.22, rootMargin: "0px 0px -10% 0px" }
+    { threshold: 0.18, rootMargin: "0px 0px -12% 0px" }
   );
 
   staggerGroups.forEach((group) => observer.observe(group.element));
