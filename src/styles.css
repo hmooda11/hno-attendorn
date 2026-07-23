@@ -377,10 +377,10 @@ h3 {
 }
 
 h1 {
-  max-width: 680px;
+  max-width: 100%;
   margin-bottom: 14px;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  font-size: 5.7rem;
+  font-size: clamp(4.05rem, 5.35vw, 4.85rem);
   font-weight: 650;
 }
 
@@ -1652,7 +1652,7 @@ dd {
   }
 
   h1 {
-    font-size: 4.4rem;
+    font-size: clamp(3.2rem, 8.8vw, 4.05rem);
   }
 
   h2 {
