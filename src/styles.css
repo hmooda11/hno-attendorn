@@ -380,7 +380,7 @@ h1 {
   max-width: 100%;
   margin-bottom: 14px;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  font-size: clamp(4.05rem, 5.35vw, 4.85rem);
+  font-size: clamp(3.25rem, 4.35vw, 4.05rem);
   font-weight: 650;
 }
 
@@ -477,6 +477,12 @@ strong[data-motion-text] {
     transform 120ms linear;
   white-space: nowrap;
   will-change: transform, opacity;
+}
+
+#hero-title .motion-word {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .reveal.in-view [data-motion-words] .motion-word {
@@ -1652,7 +1658,7 @@ dd {
   }
 
   h1 {
-    font-size: clamp(3.2rem, 8.8vw, 4.05rem);
+    font-size: clamp(2.9rem, 7.2vw, 3.55rem);
   }
 
   h2 {
@@ -1818,7 +1824,7 @@ dd {
 
   h1 {
     margin-bottom: 12px;
-    font-size: 2.8rem;
+    font-size: 2.55rem;
     line-height: 0.95;
   }
 
@@ -2099,7 +2105,7 @@ dd {
   }
 
   h1 {
-    font-size: 2.45rem;
+    font-size: 2.18rem;
   }
 
   .quick-info {
