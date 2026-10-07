@@ -1,0 +1,591 @@
+media:
+  - name: content_images
+    label: Praxisbilder
+    input: public/content/images
+    output: /content/images
+    rename: safe
+    extensions: [jpg, jpeg, png, webp, avif]
+    categories: [image]
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      update: "Inhalte aktualisieren: {path}"
+      create: "Bild hinzufügen: {path}"
+      delete: "Bild entfernen: {path}"
+      rename: "Bild umbenennen: {oldPath} -> {newPath}"
+
+content:
+  - name: website
+    label: Website bearbeiten
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: site
+        label: Praxis
+        type: object
+        required: true
+        fields:
+          - name: language
+            type: string
+            hidden: true
+          - name: url
+            label: Website-Adresse
+            type: string
+            required: true
+            pattern:
+              regex: "^https://.+"
+              message: "Bitte eine vollständige HTTPS-Adresse eingeben."
+          - name: name
+            label: Praxisname
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: doctorName
+            label: Name des Arztes
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: doctorTitle
+            label: Berufsbezeichnung
+            type: string
+            required: true
+            options: { maxlength: 120 }
+          - name: medicalSpecialty
+            type: string
+            hidden: true
+
+      - name: contact
+        label: Kontakt und Links
+        type: object
+        required: true
+        fields:
+          - name: street
+            label: Straße und Hausnummer
+            type: string
+            required: true
+            options: { maxlength: 100 }
+          - name: postalCode
+            label: Postleitzahl
+            type: string
+            required: true
+            pattern:
+              regex: "^[0-9]{5}$"
+              message: "Bitte eine fünfstellige Postleitzahl eingeben."
+          - name: city
+            label: Ort
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: countryCode
+            type: string
+            hidden: true
+          - name: phoneDisplay
+            label: Telefonnummer (Anzeige)
+            type: string
+            required: true
+            description: "So erscheint die Nummer auf der Website."
+            options: { maxlength: 40 }
+          - name: phoneLink
+            label: Telefonnummer (international)
+            type: string
+            required: true
+            description: "Ohne Leerzeichen, zum Beispiel +49272254795."
+            pattern:
+              regex: "^\\+[1-9][0-9]{6,14}$"
+              message: "Bitte im Format +49272254795 eingeben."
+          - name: faxDisplay
+            label: Faxnummer (Anzeige)
+            type: string
+            required: true
+            options: { maxlength: 40 }
+          - name: faxLink
+            label: Faxnummer (international)
+            type: string
+            required: true
+            description: "Ohne Leerzeichen, zum Beispiel +492722929797."
+            pattern:
+              regex: "^\\+[1-9][0-9]{6,14}$"
+              message: "Bitte im internationalen Format eingeben."
+          - name: email
+            label: E-Mail-Adresse
+            type: string
+            required: true
+            pattern:
+              regex: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+              message: "Bitte eine gültige E-Mail-Adresse eingeben."
+          - name: bookingUrl
+            label: Doctolib-Link
+            type: string
+            required: true
+            pattern:
+              regex: "^https://.+"
+              message: "Bitte eine vollständige HTTPS-Adresse eingeben."
+          - name: mapsUrl
+            label: Google-Maps-Link
+            type: string
+            required: true
+            pattern:
+              regex: "^https://.+"
+              message: "Bitte eine vollständige HTTPS-Adresse eingeben."
+
+      - name: hero
+        label: Startbereich
+        type: object
+        required: true
+        fields:
+          - name: eyebrow
+            label: Kleine Überschrift
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: title
+            label: Hauptüberschrift
+            type: string
+            required: true
+            options: { maxlength: 100 }
+          - name: subtitle
+            label: Unterzeile
+            type: string
+            required: true
+            options: { maxlength: 180 }
+          - name: headerBookingButton
+            label: Buchung im Seitenkopf
+            type: string
+            required: true
+            options: { maxlength: 40 }
+          - name: bookingButton
+            label: Buchungsschaltfläche
+            type: string
+            required: true
+            options: { maxlength: 50 }
+          - name: phoneButton
+            label: Telefonschaltfläche
+            type: string
+            required: true
+            options: { maxlength: 50 }
+          - name: mapsButton
+            label: Anfahrtschaltfläche
+            type: string
+            required: true
+            options: { maxlength: 50 }
+          - name: initialStatusLabel
+            label: Status während des Ladens
+            type: string
+            required: true
+            options: { maxlength: 40 }
+          - name: initialStatusText
+            label: Hinweis während des Ladens
+            type: string
+            required: true
+            options: { maxlength: 100 }
+
+      - name: quickInfo
+        label: Schnellinformationen
+        type: object
+        required: true
+        fields:
+          - name: addressLabel
+            label: Beschriftung Adresse
+            type: string
+            required: true
+          - name: phoneLabel
+            label: Beschriftung Telefon
+            type: string
+            required: true
+          - name: emailLabel
+            label: Beschriftung E-Mail
+            type: string
+            required: true
+          - name: appointmentsLabel
+            label: Beschriftung Termine
+            type: string
+            required: true
+          - name: appointmentsText
+            label: Termintext
+            type: string
+            required: true
+
+      - name: practice
+        label: Praxisbereich
+        type: object
+        required: true
+        fields:
+          - name: eyebrow
+            label: Kleine Überschrift
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+            options: { maxlength: 140 }
+          - name: paragraphs
+            label: Beschreibungstexte
+            type: text
+            required: true
+            list: { min: 1, max: 4 }
+            options: { maxlength: 700 }
+          - name: highlights
+            label: Praxis-Schwerpunkte
+            type: string
+            required: true
+            list: { min: 1, max: 6 }
+            options: { maxlength: 40 }
+          - name: galleryLabel
+            label: Galerie-Überschrift
+            type: string
+            required: true
+          - name: galleryNote
+            label: Hinweis unter der Galerie
+            type: text
+            required: true
+            options: { maxlength: 240 }
+
+      - name: gallery
+        label: Praxisbilder
+        type: object
+        required: true
+        list:
+          min: 1
+          max: 8
+          collapsible:
+            collapsed: true
+            summary: "{stepNumber} – {stepTitle}"
+        fields:
+          - name: image
+            label: Bild
+            type: image
+            required: true
+            options:
+              media: content_images
+              extensions: [jpg, jpeg, png, webp, avif]
+              rename: safe
+          - name: alt
+            label: Bildbeschreibung
+            type: text
+            required: true
+            description: "Kurz beschreiben, was auf dem Bild zu sehen ist. Wichtig für Barrierefreiheit."
+            options: { minlength: 10, maxlength: 180 }
+          - name: captionLabel
+            label: Kleine Bildbeschriftung
+            type: string
+            required: true
+            options: { maxlength: 40 }
+          - name: captionTitle
+            label: Bildtitel
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: stepNumber
+            label: Nummer
+            type: string
+            required: true
+            pattern:
+              regex: "^[0-9]{2}$"
+              message: "Bitte zweistellig eingeben, zum Beispiel 01."
+          - name: stepTitle
+            label: Abschnittsüberschrift
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: stepText
+            label: Abschnittstext
+            type: text
+            required: true
+            options: { maxlength: 360 }
+
+      - name: hoursSection
+        label: Sprechzeiten-Bereich
+        type: object
+        required: true
+        fields:
+          - name: eyebrow
+            label: Kleine Überschrift
+            type: string
+            required: true
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+            options: { maxlength: 140 }
+          - name: intro
+            label: Einleitung
+            type: text
+            required: true
+            options: { maxlength: 400 }
+          - name: appointmentNote
+            label: Hinweis unter den Zeiten
+            type: string
+            required: true
+          - name: closedLabel
+            label: Anzeige für geschlossene Tage
+            type: string
+            required: true
+          - name: todayPrefix
+            label: Text vor dem heutigen Wochentag
+            type: string
+            required: true
+          - name: hoursJoiner
+            type: string
+            hidden: true
+          - name: hoursSuffix
+            type: string
+            hidden: true
+          - name: closedTodayText
+            label: Hinweis, wenn heute geschlossen ist
+            type: string
+            required: true
+            options: { maxlength: 100 }
+
+      - name: openingHours
+        label: Öffnungszeiten
+        type: object
+        required: true
+        list:
+          min: 7
+          max: 7
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: id
+            type: string
+            hidden: true
+          - name: schemaDay
+            type: string
+            hidden: true
+          - name: jsDay
+            type: number
+            hidden: true
+          - name: label
+            label: Wochentag
+            type: string
+            required: true
+          - name: showOnBoard
+            label: Auf der Sprechzeiten-Tafel anzeigen
+            type: boolean
+            required: true
+          - name: intervals
+            label: Zeiträume
+            type: object
+            list:
+              min: 0
+              max: 3
+              collapsible:
+                collapsed: false
+                summary: "{open} bis {close}"
+            fields:
+              - name: open
+                label: Von
+                type: string
+                required: true
+                description: "24-Stunden-Format, zum Beispiel 08:00."
+                pattern:
+                  regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+                  message: "Bitte im Format HH:MM eingeben."
+              - name: close
+                label: Bis
+                type: string
+                required: true
+                description: "24-Stunden-Format, zum Beispiel 12:00."
+                pattern:
+                  regex: "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+                  message: "Bitte im Format HH:MM eingeben."
+
+      - name: servicesSection
+        label: Leistungen – Einleitung
+        type: object
+        required: true
+        fields:
+          - name: eyebrow
+            label: Kleine Überschrift
+            type: string
+            required: true
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+            options: { maxlength: 140 }
+          - name: intro
+            label: Einleitung
+            type: text
+            required: true
+            options: { maxlength: 400 }
+
+      - name: services
+        label: Leistungen
+        type: object
+        required: true
+        list:
+          min: 1
+          max: 8
+          collapsible:
+            collapsed: true
+            summary: "{number} – {title}"
+        fields:
+          - name: number
+            label: Nummer
+            type: string
+            required: true
+            pattern:
+              regex: "^[0-9]{2}$"
+              message: "Bitte zweistellig eingeben, zum Beispiel 01."
+          - name: title
+            label: Titel
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: text
+            label: Beschreibung
+            type: text
+            required: true
+            options: { maxlength: 360 }
+
+      - name: contactSection
+        label: Kontaktbereich
+        type: object
+        required: true
+        fields:
+          - name: eyebrow
+            label: Kleine Überschrift
+            type: string
+            required: true
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+            options: { maxlength: 140 }
+          - name: intro
+            label: Einleitung
+            type: text
+            required: true
+            options: { maxlength: 500 }
+          - name: bookingButton
+            label: Buchungsschaltfläche
+            type: string
+            required: true
+          - name: emailButton
+            label: E-Mail-Schaltfläche
+            type: string
+            required: true
+
+      - name: phoneModal
+        label: Telefonfenster
+        type: object
+        required: true
+        fields:
+          - name: eyebrow
+            label: Kleine Überschrift
+            type: string
+            required: true
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+          - name: text
+            label: Erklärung
+            type: text
+            required: true
+            options: { maxlength: 240 }
+
+      - name: footer
+        label: Fußbereich und Datenschutz
+        type: object
+        required: true
+        fields:
+          - name: contactHeading
+            label: Kontakt-Überschrift
+            type: string
+            required: true
+          - name: privacyHeading
+            label: Datenschutz-Überschrift
+            type: string
+            required: true
+          - name: privacyText
+            label: Datenschutzhinweis
+            type: text
+            required: true
+            options: { maxlength: 400 }
+          - name: telephoneLabel
+            label: Abkürzung Telefon
+            type: string
+            required: true
+          - name: faxLabel
+            label: Beschriftung Fax
+            type: string
+            required: true
+          - name: emailLabel
+            label: Beschriftung E-Mail
+            type: string
+            required: true
+
+      - name: navigation
+        label: Navigation
+        type: object
+        required: true
+        fields:
+          - name: practice
+            label: Praxis
+            type: string
+            required: true
+          - name: hours
+            label: Sprechzeiten
+            type: string
+            required: true
+          - name: services
+            label: Leistungen
+            type: string
+            required: true
+          - name: contact
+            label: Kontakt
+            type: string
+            required: true
+          - name: legal
+            label: Impressum
+            type: string
+            required: true
+
+      - name: seo
+        label: Suchmaschinen und Teilen
+        type: object
+        required: true
+        fields:
+          - name: title
+            label: Seitentitel
+            type: string
+            required: true
+            options: { minlength: 10, maxlength: 70 }
+          - name: description
+            label: Beschreibung für Suchmaschinen
+            type: text
+            required: true
+            options: { minlength: 40, maxlength: 180 }
+          - name: socialTitle
+            label: Titel beim Teilen
+            type: string
+            required: true
+            options: { maxlength: 80 }
+          - name: socialDescription
+            label: Beschreibung beim Teilen
+            type: text
+            required: true
+            options: { maxlength: 200 }
+          - name: socialImage
+            label: Bild beim Teilen
+            type: image
+            required: true
+            options:
+              media: content_images
+              extensions: [jpg, jpeg, png, webp, avif]
+              rename: safe
+
+    commit:
+      identity: user
+      templates:
+        update: "Website-Inhalte aktualisieren"

@@ -1,0 +1,251 @@
+{
+  "site": {
+    "language": "de",
+    "url": "https://hno-attendorn.de/",
+    "name": "HNO-Attendorn Praxis",
+    "doctorName": "Wael Alyoussef",
+    "doctorTitle": "Facharzt für Hals-Nasen-Ohrenheilkunde",
+    "medicalSpecialty": "Otolaryngologic"
+  },
+  "seo": {
+    "title": "HNO-Attendorn Praxis | Attendorn",
+    "description": "HNO-Attendorn Praxis in Attendorn. Wael Alyoussef, Facharzt für Hals-Nasen-Ohrenheilkunde, Hansastraße 4, 57439 Attendorn.",
+    "socialTitle": "HNO-Attendorn Praxis | Attendorn",
+    "socialDescription": "Facharzt für Hals-Nasen-Ohrenheilkunde in Attendorn. Sprechzeiten, Kontakt und Anfahrt.",
+    "socialImage": "/content/images/hno-logo.png"
+  },
+  "contact": {
+    "street": "Hansastraße 4",
+    "postalCode": "57439",
+    "city": "Attendorn",
+    "countryCode": "DE",
+    "phoneDisplay": "0 27 22 - 5 47 95",
+    "phoneLink": "+49272254795",
+    "faxDisplay": "0 27 22 - 92 97 97",
+    "faxLink": "+492722929797",
+    "email": "Hno-attendorn@t-online.de",
+    "bookingUrl": "https://www.doctolib.de/facharzt-fur-hno/attendorn/wael-alyoussef",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hansastra%C3%9Fe%204%2C%2057439%20Attendorn"
+  },
+  "navigation": {
+    "practice": "Praxis",
+    "hours": "Sprechzeiten",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "legal": "Impressum"
+  },
+  "hero": {
+    "eyebrow": "HNO-Praxis in Attendorn",
+    "title": "HNO-Attendorn Praxis",
+    "subtitle": "Wael Alyoussef, Facharzt für Hals-Nasen-Ohrenheilkunde",
+    "headerBookingButton": "Online buchen",
+    "bookingButton": "Termin online buchen",
+    "phoneButton": "Telefonisch vereinbaren",
+    "mapsButton": "Anfahrt öffnen",
+    "initialStatusLabel": "Heute",
+    "initialStatusText": "Bitte Sprechzeiten beachten"
+  },
+  "quickInfo": {
+    "addressLabel": "Adresse",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Mail",
+    "appointmentsLabel": "Termine",
+    "appointmentsText": "Online über Doctolib"
+  },
+  "practice": {
+    "eyebrow": "Die Praxis",
+    "title": "Ruhige HNO-Versorgung mitten in Attendorn.",
+    "paragraphs": [
+      "Die HNO-Attendorn Praxis bietet eine klare Anlaufstelle für Beschwerden rund um Hals, Nase und Ohren. Im Mittelpunkt stehen eine strukturierte Untersuchung, verständliche Orientierung und eine direkte Terminvereinbarung.",
+      "Patientinnen und Patienten finden hier die wichtigsten Praxisdaten, Sprechzeiten, Online-Buchung und Kontaktwege auf einen Blick."
+    ],
+    "highlights": [
+      "HNO-Facharzt",
+      "Online-Termine",
+      "Attendorn Zentrum"
+    ],
+    "galleryLabel": "Praxis-Einblicke",
+    "galleryNote": "Temporäre freie Bildplatzhalter, bis eigene Praxisfotos vorliegen."
+  },
+  "gallery": [
+    {
+      "image": "/content/images/praxis-treatment-room.jpg",
+      "alt": "Modernes Behandlungszimmer als Platzhalterbild",
+      "captionLabel": "Platzhalter",
+      "captionTitle": "Behandlungszimmer",
+      "stepNumber": "01",
+      "stepTitle": "Ankommen",
+      "stepText": "Ein ruhiger erster Eindruck mit klaren Wegen für Termin, Kontakt und Orientierung."
+    },
+    {
+      "image": "/content/images/praxis-ear-exam.jpg",
+      "alt": "Ohruntersuchung mit Otoskop als Platzhalterbild",
+      "captionLabel": "Platzhalter",
+      "captionTitle": "HNO-Untersuchung",
+      "stepNumber": "02",
+      "stepTitle": "Untersuchung",
+      "stepText": "HNO-Diagnostik wird verständlich begleitet, vom ersten Blick bis zur nächsten Empfehlung."
+    },
+    {
+      "image": "/content/images/praxis-child-exam.jpg",
+      "alt": "Kinderfreundliche Untersuchungssituation als Platzhalterbild",
+      "captionLabel": "Platzhalter",
+      "captionTitle": "Ruhige Behandlung",
+      "stepNumber": "03",
+      "stepTitle": "Begleitung",
+      "stepText": "Auch junge Patientinnen und Patienten sollen sich während der Untersuchung gut aufgehoben fühlen."
+    },
+    {
+      "image": "/content/images/praxis-otoscope.jpg",
+      "alt": "Otoskopische Untersuchung als Platzhalterbild",
+      "captionLabel": "Platzhalter",
+      "captionTitle": "Diagnostik",
+      "stepNumber": "04",
+      "stepTitle": "Diagnostik",
+      "stepText": "Moderne HNO-Instrumente unterstützen eine gezielte Abklärung von Beschwerden."
+    }
+  ],
+  "hoursSection": {
+    "eyebrow": "Sprechzeiten",
+    "title": "Planbar, klar, direkt erreichbar.",
+    "intro": "Die aktuellen Zeiten aus der Praxis-Karte. Termine können online über Doctolib oder telefonisch vereinbart werden.",
+    "appointmentNote": "Und nach Vereinbarung",
+    "closedLabel": "Geschlossen",
+    "todayPrefix": "Heute",
+    "hoursJoiner": " und ",
+    "hoursSuffix": " Uhr",
+    "closedTodayText": "Heute keine regulären Sprechzeiten"
+  },
+  "openingHours": [
+    {
+      "id": "monday",
+      "schemaDay": "Monday",
+      "jsDay": 1,
+      "label": "Montag",
+      "showOnBoard": true,
+      "intervals": [
+        { "open": "08:00", "close": "12:00" },
+        { "open": "14:00", "close": "17:00" }
+      ]
+    },
+    {
+      "id": "tuesday",
+      "schemaDay": "Tuesday",
+      "jsDay": 2,
+      "label": "Dienstag",
+      "showOnBoard": true,
+      "intervals": [
+        { "open": "08:00", "close": "12:00" },
+        { "open": "14:00", "close": "17:00" }
+      ]
+    },
+    {
+      "id": "wednesday",
+      "schemaDay": "Wednesday",
+      "jsDay": 3,
+      "label": "Mittwoch",
+      "showOnBoard": true,
+      "intervals": [
+        { "open": "08:00", "close": "13:00" }
+      ]
+    },
+    {
+      "id": "thursday",
+      "schemaDay": "Thursday",
+      "jsDay": 4,
+      "label": "Donnerstag",
+      "showOnBoard": true,
+      "intervals": [
+        { "open": "08:00", "close": "12:00" },
+        { "open": "15:00", "close": "18:00" }
+      ]
+    },
+    {
+      "id": "friday",
+      "schemaDay": "Friday",
+      "jsDay": 5,
+      "label": "Freitag",
+      "showOnBoard": true,
+      "intervals": [
+        { "open": "08:00", "close": "12:00" }
+      ]
+    },
+    {
+      "id": "saturday",
+      "schemaDay": "Saturday",
+      "jsDay": 6,
+      "label": "Samstag",
+      "showOnBoard": false,
+      "intervals": []
+    },
+    {
+      "id": "sunday",
+      "schemaDay": "Sunday",
+      "jsDay": 0,
+      "label": "Sonntag",
+      "showOnBoard": false,
+      "intervals": []
+    }
+  ],
+  "servicesSection": {
+    "eyebrow": "Hals, Nase, Ohren",
+    "title": "Orientierung für den nächsten Praxisbesuch.",
+    "intro": "Eine sachliche Übersicht typischer HNO-Anliegen, damit Patientinnen und Patienten schnell den richtigen Kontaktweg finden."
+  },
+  "services": [
+    {
+      "number": "01",
+      "title": "Ohren & Hören",
+      "text": "Abklärung von Ohrbeschwerden, Hörminderung, Druckgefühl und wiederkehrenden Entzündungen."
+    },
+    {
+      "number": "02",
+      "title": "Nase & Atmung",
+      "text": "Beratung bei verstopfter Nase, Nebenhöhlenbeschwerden, Allergiezeichen und Riechstörungen."
+    },
+    {
+      "number": "03",
+      "title": "Hals & Stimme",
+      "text": "Untersuchung bei Halsschmerzen, Schluckbeschwerden, Heiserkeit und wiederkehrenden Infekten."
+    },
+    {
+      "number": "04",
+      "title": "Kontrolle & Nachsorge",
+      "text": "Verlaufskontrollen und Besprechung weiterer Schritte nach individueller ärztlicher Einschätzung."
+    }
+  ],
+  "contactSection": {
+    "eyebrow": "Kontakt",
+    "title": "Buchen Sie online oder rufen Sie an.",
+    "intro": "Termine können direkt online über Doctolib oder telefonisch vereinbart werden. Bitte senden Sie keine dringenden medizinischen Anliegen per E-Mail.",
+    "bookingButton": "Termin online buchen",
+    "emailButton": "E-Mail schreiben"
+  },
+  "phoneModal": {
+    "eyebrow": "Telefonisch vereinbaren",
+    "title": "Rufen Sie uns an",
+    "text": "Für eine Terminvereinbarung erreichen Sie die Praxis unter:"
+  },
+  "footer": {
+    "contactHeading": "Kontakt",
+    "privacyHeading": "Datenschutz",
+    "privacyText": "Diese statische Website verwendet kein Kontaktformular und setzt keine Analyse-Cookies.",
+    "telephoneLabel": "Tel",
+    "faxLabel": "Fax",
+    "emailLabel": "E-Mail"
+  },
+  "accessibility": {
+    "skipLink": "Zum Kontakt springen",
+    "homeLabel": "Zur Startseite",
+    "navigationLabel": "Hauptnavigation",
+    "heroActionsLabel": "Schnelle Kontaktmöglichkeiten",
+    "practiceStatusLabel": "Praxisstatus",
+    "quickInfoLabel": "Praxis auf einen Blick",
+    "practiceHighlightsLabel": "Praxis-Schwerpunkte",
+    "galleryLabel": "Bildgalerie der Praxis",
+    "galleryStepsLabel": "Praxis-Einblicke",
+    "hoursLabel": "Sprechzeiten",
+    "servicesLabel": "Leistungsbereiche",
+    "closeLabel": "Schließen"
+  }
+}
